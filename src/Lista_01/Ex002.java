@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class Ex002 extends javax.swing.JFrame {
 
+    String sexo;
     /**
      * Creates new form Ex002
      */
@@ -36,8 +37,8 @@ public class Ex002 extends javax.swing.JFrame {
         cbCategoria = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        btnMasc = new javax.swing.JRadioButton();
+        btnFem = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         cbFilmes = new javax.swing.JComboBox<>();
         btnEnviar = new javax.swing.JButton();
@@ -56,16 +57,21 @@ public class Ex002 extends javax.swing.JFrame {
 
         jLabel4.setText("Sexo");
 
-        bgSexo.add(jRadioButton1);
-        jRadioButton1.setText("Masc.");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        bgSexo.add(btnMasc);
+        btnMasc.setText("Masc.");
+        btnMasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                btnMascActionPerformed(evt);
             }
         });
 
-        bgSexo.add(jRadioButton2);
-        jRadioButton2.setText("Fem.");
+        bgSexo.add(btnFem);
+        btnFem.setText("Fem.");
+        btnFem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFemActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Últimos Filmes Alocados");
 
@@ -100,9 +106,9 @@ public class Ex002 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(btnMasc)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton2))))
+                                .addComponent(btnFem))))
                     .addComponent(cbFilmes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,8 +134,8 @@ public class Ex002 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(btnMasc)
+                    .addComponent(btnFem))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -144,9 +150,11 @@ public class Ex002 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void btnMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMascActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+        
+        sexo = "Masculino";
+    }//GEN-LAST:event_btnMascActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
@@ -154,11 +162,15 @@ public class Ex002 extends javax.swing.JFrame {
         String endereco = txtEndereco.getText();
         
         Object categoria = cbCategoria.getSelectedItem();
-        Object sexo = bgSexo.getSelection();
         Object filmes = cbFilmes.getSelectedItem();
         
-        JOptionPane.showMessageDialog(null, sexo);
+        JOptionPane.showMessageDialog(null, "Nome: " + nome + " Endereço: " + endereco + " Categoria: " + categoria + " Filme: " + filmes + " Sexo: " + sexo);
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnFemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFemActionPerformed
+        // TODO add your handling code here:
+        sexo = "Feminino";
+    }//GEN-LAST:event_btnFemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,6 +211,8 @@ public class Ex002 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bgSexo;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEnviar;
+    private javax.swing.JRadioButton btnFem;
+    private javax.swing.JRadioButton btnMasc;
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JComboBox<String> cbFilmes;
     private javax.swing.JLabel jLabel1;
@@ -206,8 +220,6 @@ public class Ex002 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
